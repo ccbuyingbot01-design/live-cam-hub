@@ -1,0 +1,193 @@
+/* DO NOT CHANGE */
+@import "tailwindcss";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
+
+/* DO NOT CHANGE */
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* CHANGE VALUES FOR THEME */
+:root {
+  /* Neobrutalism: nothing is rounded. */
+  --radius: 0px;
+
+  /* Flat colour blocking — bone paper, hard ink, one acid, one signal. */
+  --background: #f1efe9;
+  --foreground: #0a0a0a;
+  --card: #ffffff;
+  --card-foreground: #0a0a0a;
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0a;
+  --primary: #0a0a0a;
+  --primary-foreground: #f8f7f3;
+  --secondary: #e4e0d6;
+  --secondary-foreground: #0a0a0a;
+  --muted: #e4e0d6;
+  --muted-foreground: #56524a;
+  --accent: #d9ff3d;
+  --accent-foreground: #0a0a0a;
+  --destructive: #ff3b1d;
+  --border: #0a0a0a;
+  --input: #0a0a0a;
+  --ring: #0a0a0a;
+  --chart-1: #0a0a0a;
+  --chart-2: #56524a;
+  --chart-3: #d9ff3d;
+  --chart-4: #ff3b1d;
+  --chart-5: #7ab8ff;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0a0a0a;
+  --sidebar-primary: #0a0a0a;
+  --sidebar-primary-foreground: #f8f7f3;
+  --sidebar-accent: #d9ff3d;
+  --sidebar-accent-foreground: #0a0a0a;
+  --sidebar-border: #0a0a0a;
+  --sidebar-ring: #0a0a0a;
+
+  /* Extra tokens used by the neobrutalist primitives further down. */
+  --nb-ink: #0a0a0a;
+  --nb-paper: #f1efe9;
+  --nb-acid: #d9ff3d;
+  --nb-signal: #ff3b1d;
+  --nb-sky: #7ab8ff;
+  --nb-shade: #e4e0d6;
+}
+
+.dark {
+  --background: #12110f;
+  --foreground: #f8f7f3;
+  --card: #1b1a17;
+  --card-foreground: #f8f7f3;
+  --popover: #1b1a17;
+  --popover-foreground: #f8f7f3;
+  --primary: #d9ff3d;
+  --primary-foreground: #0a0a0a;
+  --secondary: #2a2823;
+  --secondary-foreground: #f8f7f3;
+  --muted: #2a2823;
+  --muted-foreground: #a5a093;
+  --accent: #d9ff3d;
+  --accent-foreground: #0a0a0a;
+  --destructive: #ff3b1d;
+  --border: #f8f7f3;
+  --input: #f8f7f3;
+  --ring: #d9ff3d;
+  --chart-1: #d9ff3d;
+  --chart-2: #a5a093;
+  --chart-3: #7ab8ff;
+  --chart-4: #ff3b1d;
+  --chart-5: #f8f7f3;
+  --nb-ink: #f8f7f3;
+  --nb-paper: #12110f;
+}
+
+@layer base {
+  /* Square corners everywhere — the core rule of the theme. */
+  *,
+  *::before,
+  *::after {
+    border-radius: 0 !important;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family:
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      "Segoe UI",
+      Roboto,
+      Helvetica,
+      Arial,
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  button:not([disabled]),
+  [role="button"]:not([disabled]) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: var(--nb-acid);
+    color: var(--nb-ink);
+  }
+}
+
+@layer components {
+  /* Hard, offset drop shadows — the only depth cue in the system. */
+  .nb-shadow {
+    box-shadow: 4px 4px 0 0 var(--nb-ink);
+  }
+  .nb-shadow-sm {
+    box-shadow: 2px 2px 0 0 var(--nb-ink);
+  }
+  .nb-shadow-lg {
+    box-shadow: 8px 8px 0 0 var(--nb-ink);
+  }
+
+  /* Press feedback: the block sits down onto its own shadow. */
+  .nb-press {
+    transition:
+      transform 90ms ease,
+      box-shadow 90ms ease;
+  }
+  .nb-press:active:not(:disabled) {
+    transform: translate(4px, 4px);
+    box-shadow: 0 0 0 0 var(--nb-ink);
+  }
+
+  /* Blueprint grid used behind hero blocks. */
+  .nb-grid {
+    background-image:
+      linear-gradient(to right, rgba(10, 10, 10, 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(10, 10, 10, 0.07) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Tracked-out uppercase micro label. */
+  .nb-label {
+    font-size: 11px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+}
